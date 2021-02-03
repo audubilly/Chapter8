@@ -41,5 +41,27 @@ class CreditCardValidationTest {
         assertTrue(isMasterCard);
     }
 
+    @Test
+    void testThatCardIsADiscoverCard(){
+        String creditCardNumber = "67878997778669";
+        boolean isDiscoverCard = creditCardValidation.isDiscoverCard(creditCardNumber);
+        assertTrue(isDiscoverCard);
+    }
+
+    @Test
+    void testThatCardIsAnAmericanExpressCard(){
+        String creditCardNumber = "37878997778669";
+        boolean isAmericanMasterCard= creditCardValidation.isAmericanMasterCard(creditCardNumber);
+        assertTrue(isAmericanMasterCard);
+
+
+    }
+    @Test
+    void testThatCreditCardStringCanBeConvertedToIntegers(){
+        String creditCardNumber = "37878997778669";
+        long creditCardNumberNew = creditCardValidation.covertToInteger(creditCardNumber);
+        assertEquals(37878997778669L,creditCardNumberNew);
+    }
+
 
     }

@@ -42,4 +42,26 @@ public class CreditCardValidation {
         return false;
 
     }
+
+    public boolean isDiscoverCard(String creditCardNumber) {
+        char firstDigit = creditCardNumber.charAt(0);
+        if (firstDigit == '6') {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isAmericanMasterCard(String creditCardNumber) {
+        char firstDigit = creditCardNumber.charAt(0);
+        char secondDigit = creditCardNumber.charAt(1);
+        if (("" + firstDigit + secondDigit).equals("37")) {
+            return true;
+        }
+        return false;
+    }
+
+    public long covertToInteger(String creditCardNumber) {
+        long creditCardNumberNew = Long.parseLong(creditCardNumber);
+        return creditCardNumberNew;
+    }
 }
