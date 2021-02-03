@@ -1,54 +1,44 @@
 package CreditCardValidation;
 
-import java.util.Scanner;
-
 public class CreditCardValidation {
 
     public boolean isCreditCardValid(String creditCardNumber) {
 
+        return false;
     }
 
 
 
     public boolean isCreditCardLengthValid(String creditCardNumber) {
-        if (creditCardNumber.length() >= 13 && creditCardNumber.length() <= 16) {
-            return true;
-        }
-        return false;
-    }
-
-    public boolean isVisa(String creditCardNumber) {
-        char firstDigit = creditCardNumber.charAt(0);
-        if (firstDigit == '4') {
-            return true;
-        }
-        return false;
+        return creditCardNumber.length() >= 13 && creditCardNumber.length() <= 16;
     }
 
     public boolean isMasterCard(String creditCardNumber) {
         char firstDigit = creditCardNumber.charAt(0);
-        if (firstDigit == '5') {
-            return true;
-        }
-        return false;
+        int firstIndex = Integer.parseInt(String.valueOf(firstDigit));
+        return firstIndex == 5;
 
+    }
+
+    public boolean isVisa(String creditCardNumber) {
+        char firstDigit = creditCardNumber.charAt(0);
+        int firstIndex = Integer.parseInt(String.valueOf(firstDigit));
+        return firstIndex == 4;
     }
 
     public boolean isDiscoverCard(String creditCardNumber) {
         char firstDigit = creditCardNumber.charAt(0);
-        if (firstDigit == '6') {
-            return true;
-        }
-        return false;
+        int firstIndex = Integer.parseInt(String.valueOf(firstDigit));
+        return firstIndex == 6;
     }
 
     public boolean isAmericanMasterCard(String creditCardNumber) {
+        StringBuilder builder = new StringBuilder();
         char firstDigit = creditCardNumber.charAt(0);
         char secondDigit = creditCardNumber.charAt(1);
-        if (("" + firstDigit + secondDigit).equals("37")) {
-            return true;
-        }
-        return false;
+        StringBuilder charOfFirstAndSecondIndices = builder.append(firstDigit).append(secondDigit);
+        int firstAndSecondIndices = Integer.parseInt(String.valueOf(charOfFirstAndSecondIndices));
+        return firstAndSecondIndices == 37;
     }
 
     public long covertToInteger(String creditCardNumber) {
