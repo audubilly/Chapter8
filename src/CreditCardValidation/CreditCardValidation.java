@@ -4,19 +4,10 @@ import java.util.Scanner;
 
 public class CreditCardValidation {
 
+    public boolean isCreditCardValid(String creditCardNumber) {
 
-//            Scanner scanner = new Scanner(System.in);
-//      }      boolean isValid = true;
-//            System.out.println("please enter an integer here");
-//            String input = scanner.next();
-//            for (int i = 0; i < input.length(); i++) {
-//                if (!Character.isDigit(input.charAt(i))) ;
-//                isValid = false;
-//                break;
-//            }
-//            if (isValid) {
-//                System.out.println(Integer.parseInt(input));
-//            }
+    }
+
 
 
     public boolean isCreditCardLengthValid(String creditCardNumber) {
@@ -64,4 +55,47 @@ public class CreditCardValidation {
         long creditCardNumberNew = Long.parseLong(creditCardNumber);
         return creditCardNumberNew;
     }
+
+    public int sumOfEvenNumbers(String creditCardNumber) {
+        int creditCardLength = creditCardNumber.length();
+        long creditCardNumberNew = covertToInteger(creditCardNumber);
+
+        int sumOfEven = 0;
+        for (int counter = 1; counter <= creditCardLength; counter++){
+            int digits = (int) (creditCardNumberNew % 10);
+            creditCardNumberNew = creditCardNumberNew / 10;
+            if( counter %2 == 0){
+                digits = digits * 2;
+                if (digits >= 10){
+                    digits = digits - 9;
+                }
+                sumOfEven = sumOfEven + digits;
+            }
+
+        }
+        return sumOfEven;
+    }
+
+    public int sumOfOddNumbers(String creditCardNumber) {
+        int creditCardLength = creditCardNumber.length();
+        long creditCardNumberNew = covertToInteger(creditCardNumber);
+
+        int sumOfOdd = 0;
+        for (int counter = 1; counter <= creditCardLength; counter++){
+            int digits = (int) (creditCardNumberNew % 10);
+            creditCardNumberNew = creditCardNumberNew / 10;
+            if( counter %2 == 1){
+                sumOfOdd = sumOfOdd + digits;
+            }
+
+        }
+        return sumOfOdd;
+    }
+
+
+    public int sumOfNumbers(String creditCardNumber) {
+        return sumOfEvenNumbers(creditCardNumber) + sumOfOddNumbers(creditCardNumber);
+    }
+
+
 }
