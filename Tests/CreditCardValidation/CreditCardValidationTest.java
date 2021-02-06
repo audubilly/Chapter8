@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CreditCardValidationTest {
 
     CreditCardValidation creditCardValidation;
+    CardValidation cardValidation ;
 
     @BeforeEach
     void setUp() {
@@ -89,9 +90,11 @@ class CreditCardValidationTest {
     void testThatCreditCardIsValid(){
         String creditCardNumber = "37878997778669";
         boolean isValid = creditCardValidation.isCreditCardValid(creditCardNumber);
-        assertTrue(isValid);
+        assertEquals(isValid,CardValidation.AMERICAN_EXPRESS);
+
 
     }
+
 
 
 }

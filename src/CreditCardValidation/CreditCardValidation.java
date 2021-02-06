@@ -1,10 +1,16 @@
 package CreditCardValidation;
 
 public class CreditCardValidation {
+    CardValidation validation;
 
     public boolean isCreditCardValid(String creditCardNumber) {
-
-        return false;
+        return  switch (validation){
+            case MASTERCARD -> isMasterCard(creditCardNumber);
+            case VISA_CARD -> isVisa(creditCardNumber);
+            case DISCOVER_CARD -> isDiscoverCard(creditCardNumber);
+            case AMERICAN_EXPRESS -> isAmericanMasterCard(creditCardNumber);
+            default -> false;
+        };
     }
 
 
