@@ -46,10 +46,14 @@ class CardTest {
 
     @Test
     void testThatTheFirstDigitOfTheCardCanBeGotten(){
-        card.checkFirstDigit(562333445566677l);
+        card.checkFirstDigit(562333445566677L);
         assertEquals(5,card.getFirstDigit());
-
-
+    }
+    @Test
+    void testThatCardIsAMasterCard(){
+        MasterCard card = new MasterCard();
+        card.setCardNumber(1234567899876543L);
+        assertEquals(1234567899876543L, card.getCardNumber());
     }
 
 }
