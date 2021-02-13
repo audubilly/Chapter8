@@ -146,6 +146,7 @@ static class Main {
         jaguar.accelerate(124,2);
         System.out.println("*******************");
         jaguar.brake(123,5);
+
     }
     }
 
