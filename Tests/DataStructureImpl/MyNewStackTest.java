@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class MyNewStackTest {
 
     MyNewStack myNewStack;
+
     @BeforeEach
     void setUp() {
         myNewStack = new MyNewStack(5);
@@ -19,26 +20,56 @@ class MyNewStackTest {
     }
 
     @Test
-    void pushOneElementTest(){
+    void pushOneElementTest() {
 
         myNewStack.push(5);
         assertEquals(5, myNewStack.peek());
     }
 
     @Test
-    void pushTwoElementsTest(){
+    void pushTwoElementsTest() {
         myNewStack.push(8);
         myNewStack.push(9);
-        assertEquals(9,myNewStack.peek());
+        assertEquals(9, myNewStack.peek());
     }
 
     @Test
-    void pushTwoElements_popOneTest(){
+    void pushTwoElements_popOneTest() {
         myNewStack.push(4);
         myNewStack.push(11);
 
-        assertEquals(11,myNewStack.pop());
-        assertEquals(4,myNewStack.peek());
+        assertEquals(11, myNewStack.pop());
+        assertEquals(4, myNewStack.peek());
 
     }
+
+    @Test
+    void pushTwoPopTwoShouldBeEmpty() {
+        myNewStack.push(4);
+        myNewStack.push(11);
+        myNewStack.pop();
+        myNewStack.pop();
+        assertTrue(myNewStack.isEmpty());
+    }
+
+    @Test
+    void pushThreeShouldBefULL() {
+        myNewStack = new MyNewStack(3);
+        myNewStack.push(4);
+        myNewStack.push(11);
+        myNewStack.push(3);
+
+        assertTrue(myNewStack.isFull());
+    }
+
+    @Test
+    void pushOneElementAfterStackIsFullThrowsStackOverflow() {
+        myNewStack = new MyNewStack(3);
+        myNewStack.push(4);
+        myNewStack.push(11);
+        myNewStack.push(3);
+
+        assertTrue(myNewStack.isFull());
+    }
+
 }

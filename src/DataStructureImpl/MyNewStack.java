@@ -23,4 +23,12 @@ public class MyNewStack {
         elements[lastLocationWritten--] = 0;
         return lastElement;
     }
+
+    public boolean isEmpty() {
+        return (lastLocationWritten == -1);
+    }
+
+    public boolean isFull() {
+        return (lastLocationWritten == (elements.length-1));
+    }
 }
