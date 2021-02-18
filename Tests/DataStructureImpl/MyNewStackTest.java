@@ -68,8 +68,25 @@ class MyNewStackTest {
         myNewStack.push(4);
         myNewStack.push(11);
         myNewStack.push(3);
-
         assertTrue(myNewStack.isFull());
+
+        assertThrows(MyNewStack.StackOverflowException.class, () -> myNewStack.push(5));
+    }
+
+    @Test
+    void removeLastElementWhenStackIsEmpty_ThrowsStackUnderFlow(){
+        assertTrue(myNewStack.isEmpty());
+        assertThrows(MyNewStack.StackUnderflowException.class, ()->myNewStack.pop());
+    }
+
+    @Test
+    void peekEmptyStack_throwsStackUnderFlowException(){
+        assertTrue(myNewStack.isEmpty());
+        assertThrows(MyNewStack.StackUnderflowException.class,()->myNewStack.peek());
+
     }
 
 }
+
+
+
