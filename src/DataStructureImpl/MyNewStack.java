@@ -34,7 +34,7 @@ public class MyNewStack {
         return (lastLocationWritten == (elements.length-1));
     }
 
-    public class StackOverflowException extends RuntimeException{
+    public static class StackOverflowException extends RuntimeException{
         public StackOverflowException(String message) {
             super(message);
         }

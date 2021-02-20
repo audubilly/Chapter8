@@ -83,7 +83,6 @@ class MyNewStackTest {
     void peekEmptyStack_throwsStackUnderFlowException(){
         assertTrue(myNewStack.isEmpty());
         assertThrows(MyNewStack.StackUnderflowException.class,()->myNewStack.peek());
-
     }
 
 }
